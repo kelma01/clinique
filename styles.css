@@ -1,0 +1,192 @@
+/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Bebas Neue', sans-serif;
+  background-color: #fff;
+  color: #222;
+}
+
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: white;
+  border-bottom: 1px solid #ccc;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.social a {
+  margin-left: 1rem;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.main-nav ul {
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.main-nav ul li a {
+  color: white;
+  padding: 1rem;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.main-nav ul li a:hover,
+.main-nav ul li a:focus {
+  background-color: #444;
+}
+
+.intro {
+  text-align: center;
+  padding: 3rem 1rem;
+  background-color: #f8f8f8;
+}
+
+.intro h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.section {
+  padding: 2rem;
+  border-top: 1px solid #eee;
+}
+
+.section h3 {
+  border-bottom: 2px solid black;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.video-text {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+}
+
+.video-placeholder {
+  background-color: #ddd;
+  width: 300px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: #666;
+}
+
+.video-text button {
+  background-color: #333;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  margin-top: 1rem;
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  color: white;
+}
+
+.box span {
+  font-size: 0.7rem;
+  font-weight: normal;
+}
+
+.red {
+  background-color: #c80000;
+}
+
+.dark {
+  background-color: #333;
+}
+
+.small-box {
+  padding: 1rem;
+  background-color: #333;
+  color: white;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  font-size: 0.9rem;
+}
+
+.contact {
+  background-color: #eee;
+  padding: 2rem;
+}
+
+.contact textarea {
+  width: 100%;
+  height: 100px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+}
+
+.input-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.input-row input {
+  flex: 1;
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+}
+
+.checkboxes label {
+  font-size: 0.85rem;
+}
+
+.submit {
+  margin-top: 1rem;
+  background-color: #b20000;
+  color: white;
+  padding: 0.7rem 2rem;
+  border: none;
+  font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .video-text {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .box {
+    width: 80px;
+    height: 80px;
+    font-size: 1.5rem;
+  }
+}
