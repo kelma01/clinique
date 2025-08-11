@@ -1,6 +1,26 @@
 /* styles.css */
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+:root {
+  --container-max: 1280px; /* biraz daha geniş */
+  --container-pad: 24px;
+  --header-pad-y: 0.75rem;
+  --brand-gap: 0.6rem;
+
+  /* Accent palette */
+  --accent: #FFDA46;         /* ana renk */
+  --accent-rgb: 255, 218, 70;
+  --accent-300: #FFE47A;     /* koyu zeminde hover */
+  --accent-600: #E6C43F;     /* açık zeminde hover */
+  --accent-700: #C9A934;     /* pressed */
+  --accent-ink: #111111;     /* aksan üstü metin */
+  --focus-ring: #C9A934;     /* erişilebilir odak */
+}
+
+html { font-size: 125%; }
+
+* , *::before, *::after { box-sizing: border-box; }
+
 body {
   margin: 0;
   font-family: 'Bebas Neue', sans-serif;
@@ -8,25 +28,56 @@ body {
   color: #222;
 }
 
+/* Header yapılandırma */
 .top-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: white;
+  gap: 1rem;
+  padding: var(--header-pad-y) var(--container-pad);
+  background-color: #fff;
   border-bottom: 1px solid #ccc;
 }
 
-.logo {
-  font-size: 1.8rem;
-  font-weight: bold;
+/* Header içeriğini ortala ve genişliği sınırla */
+.top-header > * { flex: 1; }
+.top-header::before,
+.top-header::after { content: ''; flex: 1; }
+
+/* Logo %20 büyütüldü */
+.site-logo {
+  height: calc(clamp(2.4rem, 6vw, 3.2rem) * 1.2);
+  max-height: calc(clamp(2.4rem, 6vw, 3.2rem) * 1.2);
+  width: auto;
+  display: block;
 }
 
-.social a {
-  margin-left: 1rem;
-  color: black;
-  text-decoration: none;
-  font-weight: bold;
+/* Mobilde çok büyümemesi için sınırla */
+@media (max-width: 768px) {
+  .site-logo {
+    max-height: calc(3rem * 1.2);
+    height: calc(2.75rem * 1.2);
+  }
+}
+
+/* Sosyal alanı sağa hizala */
+.social { text-align: right; white-space: nowrap; }
+.social a { margin-left: 0; }
+.social img {
+  height: 1.5rem;
+  width: 1.5rem;
+  display: inline-block;
+}
+
+/* Hover efekti */
+.social a:hover img,
+.social a:focus img { filter: brightness(0.7); }
+
+.main-nav {
+  background-color: #000;
 }
 
 .main-nav ul {
@@ -36,6 +87,10 @@ body {
   padding: 0;
   margin: 0;
   list-style: none;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-inline: var(--container-pad);
+  background: transparent;
 }
 
 .main-nav ul li a {
@@ -47,13 +102,28 @@ body {
 
 .main-nav ul li a:hover,
 .main-nav ul li a:focus {
-  background-color: #444;
+  /* siyah zemin üzerinde yarı saydam aksan */
+  background-color: rgba(var(--accent-rgb), 0.35);
+}
+
+/* Odak için belirgin halka */
+.main-nav ul li a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 .intro {
   text-align: center;
   padding: 3rem 1rem;
-  background-color: #f8f8f8;
+  background-color: white;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+  
 }
 
 .intro h2 {
@@ -64,6 +134,9 @@ body {
 .section {
   padding: 2rem;
   border-top: 1px solid #eee;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
 }
 
 .section h3 {
@@ -81,8 +154,8 @@ body {
 
 .video-placeholder {
   background-color: #ddd;
-  width: 300px;
-  height: 200px;
+  width: 18.75rem;  /* 300px */
+  height: 12.5rem;  /* 200px */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -90,13 +163,23 @@ body {
   color: #666;
 }
 
+/* Video bölümündeki butonlar: aksan rengi */
 .video-text button {
-  background-color: #333;
-  color: white;
+  background-color: var(--accent);
+  color: var(--accent-ink);
   padding: 0.5rem 1rem;
   border: none;
-  box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.25);
   margin-top: 1rem;
+  cursor: pointer;
+  transition: background-color .15s ease, transform .05s ease;
+}
+.video-text button:hover {
+  background-color: var(--accent-600);
+}
+.video-text button:active {
+  background-color: var(--accent-700);
+  transform: translateY(1px);
 }
 
 .options {
@@ -107,8 +190,8 @@ body {
 }
 
 .box {
-  width: 100px;
-  height: 100px;
+  width: 6.25rem;   /* 100px */
+  height: 6.25rem;  /* 100px */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -124,9 +207,11 @@ body {
   font-weight: normal;
 }
 
-.red {
-  background-color: #c80000;
-}
+/* Kutu ve rozetlerde kullanılabilecek yardımcı sınıf */
+.accent { background-color: var(--accent); color: var(--accent-ink); }
+
+/* Eski kırmızıların yerini aksan alsın */
+.red { background-color: var(--accent); color: var(--accent-ink); }
 
 .dark {
   background-color: #333;
@@ -143,11 +228,14 @@ body {
 .contact {
   background-color: #eee;
   padding: 2rem;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
 }
 
 .contact textarea {
   width: 100%;
-  height: 100px;
+  height: 6.25rem;  /* 100px */
   padding: 1rem;
   margin-bottom: 1rem;
   border: 1px solid #ccc;
@@ -169,14 +257,19 @@ body {
   font-size: 0.85rem;
 }
 
+/* Form gönder butonu aksan rengine çekildi */
 .submit {
   margin-top: 1rem;
-  background-color: #b20000;
-  color: white;
+  background-color: var(--accent);
+  color: var(--accent-ink);
   padding: 0.7rem 2rem;
   border: none;
   font-size: 1rem;
+  cursor: pointer;
+  transition: background-color .15s ease, transform .05s ease;
 }
+.submit:hover { background-color: var(--accent-600); }
+.submit:active { background-color: var(--accent-700); transform: translateY(1px); }
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -185,8 +278,9 @@ body {
     align-items: flex-start;
   }
   .box {
-    width: 80px;
-    height: 80px;
+    width: 5rem;    /* 80px */
+    height: 5rem;   /* 80px */
     font-size: 1.5rem;
   }
+  :root { --container-pad: 16px; }
 }
