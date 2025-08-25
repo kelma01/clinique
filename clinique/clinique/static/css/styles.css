@@ -2,13 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 :root {
-  --container-max: 1280px; /* biraz daha geniş */
+  --container-max: 1280px;
   --container-pad: 24px;
   --header-pad-y: 0.75rem;
   --brand-gap: 0.6rem;
+  --social-size: 1.5rem; /* header/footer ikon boyutu */
 
   /* Accent palette */
-  --accent: #FFDA46;         /* ana renk */
+  --accent: #FFDA46;
   --accent-rgb: 255, 218, 70;
   --accent-300: #FFE47A;     /* koyu zeminde hover */
   --accent-600: #E6C43F;     /* açık zeminde hover */
@@ -67,8 +68,8 @@ body {
 .social { text-align: right; white-space: nowrap; }
 .social a { margin-left: 0; }
 .social img {
-  height: 1.5rem;
-  width: 1.5rem;
+  height: var(--social-size);
+  width: var(--social-size);
   display: inline-block;
 }
 
@@ -103,6 +104,11 @@ body {
 .main-nav ul li a:hover,
 .main-nav ul li a:focus {
   /* siyah zemin üzerinde yarı saydam aksan */
+  background-color: rgba(var(--accent-rgb), 0.35);
+}
+
+.main-nav a.active,
+.main-nav a[aria-current="page"] {
   background-color: rgba(var(--accent-rgb), 0.35);
 }
 
@@ -189,6 +195,14 @@ textarea:focus-visible {
   margin-top: 1rem;
 }
 
+/* Kutular link oldu: görünüm bozulmasın */
+.options a.box,
+.options a.small-box {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block; /* mevcut kutu stilleriyle uyumlu */
+}
+
 .box {
   width: 6.25rem;   /* 100px */
   height: 6.25rem;  /* 100px */
@@ -270,6 +284,158 @@ textarea:focus-visible {
 }
 .submit:hover { background-color: var(--accent-600); }
 .submit:active { background-color: var(--accent-700); transform: translateY(1px); }
+
+/* GÖNDER butonu: intro ile aynı font */
+.submit {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: .4px;
+}
+
+/* Form placeholder'ları (mesaj, isim, e-posta) aynı font */
+.contact input::placeholder,
+.contact textarea::placeholder {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: .2px;
+}
+
+/* (İsteğe bağlı eski motorlar) */
+.contact input::-webkit-input-placeholder,
+.contact textarea::-webkit-input-placeholder {
+  font-family: 'Bebas Neue', sans-serif;
+}
+.contact input:-ms-input-placeholder,
+.contact textarea:-ms-input-placeholder {
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.procedure-list { margin: .5rem 0 0 1.2rem; line-height: 1.6; }
+/* Footer (outro) */
+.site-footer {
+  border-top: 1px solid #222;
+  background-color: #000;
+  padding: 2rem var(--container-pad, 24px);
+}
+.site-footer .container {
+  max-width: var(--container-max, 1200px);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;        /* merkezde üst üste */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.75rem;
+  flex-wrap: nowrap;
+}
+.footer-brand .site-logo {
+  /* header ile aynı boyut (zaten .site-logo ortak) */
+  height: calc(clamp(2.4rem, 6vw, 3.2rem) * 1.2);
+  max-height: calc(clamp(2.4rem, 6vw, 3.2rem) * 1.2);
+  width: auto;
+  display: block;
+}
+.footer-info {
+  font-style: normal;
+  color: #fff;
+  opacity: 0.9;
+}
+.footer-social img {
+  height: var(--social-size);
+  width: var(--social-size);
+  display: block;
+  transition: filter .15s ease;
+  filter: invert(1); /* siyah zeminde görünürlük */
+}
+.footer-social a:hover img,
+.footer-social a:focus img {
+  filter: invert(1) brightness(0.85);
+}
+
+/* Footer telefon linki: underline ve mavi/visited renk yok */
+.site-footer a[href^="tel:"],
+.site-footer a[href^="tel:"]:link,
+.site-footer a[href^="tel:"]:visited,
+.site-footer a[href^="tel:"]:hover,
+.site-footer a[href^="tel:"]:active,
+.site-footer a[href^="tel:"]:focus {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* İstersen odak halkası kalsın */
+.site-footer a[href^="tel:"]:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* "Yaptığım İşlemler" bölümünü ortala */
+.section.services {
+  max-width: var(--container-max, 1200px);
+  margin-inline: auto;
+  padding-inline: var(--container-pad, 24px);
+}
+.section.services .options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* "Yaptığım İşler" kutularının iç metnini ortala */
+.section.services .options a.box,
+.section.services .options a.small-box {
+  display: inline-flex;          /* dikey hizalama için */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;            /* <br> ve span için */
+  gap: .25rem;
+}
+
+.section.services .options a.box span,
+.section.services .options a.small-box span {
+  display: block;
+  text-align: center;
+}
+
+/* "Yaptığım İşlemler" kutuları: hepsi botoks rengi (accent) */
+.section.services .box,
+.section.services .small-box {
+  background-color: var(--accent) !important;
+  color: var(--accent-ink) !important;
+}
+
+.section.services .box:hover,
+.section.services .small-box:hover,
+.section.services .box:focus,
+.section.services .small-box:focus {
+  background-color: var(--accent-600) !important;
+}
+
+.section.services .box:active,
+.section.services .small-box:active {
+  background-color: var(--accent-700) !important;
+}
+
+/* Harita */
+.map-section { max-width: var(--container-max, 1200px); margin-inline: auto; padding-inline: var(--container-pad, 24px); }
+.map-embed { position: relative; aspect-ratio: 16 / 9; width: 100%; border-radius: 12px; overflow: hidden; box-shadow: 0 6px 16px rgba(0,0,0,0.2); }
+.map-embed iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+/* Harita aksiyon butonu */
+.map-actions { margin-top: .5rem; text-align: right; }
+.btn-map {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--accent-ink);
+  padding: .4rem .8rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: .3px;
+  transition: background-color .15s ease;
+}
+.btn-map:hover, .btn-map:focus { background: var(--accent-600); }
 
 /* Responsive */
 @media (max-width: 768px) {

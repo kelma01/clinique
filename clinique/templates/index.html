@@ -1,103 +1,32 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dr. Fatma Arı</title>
-  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+{% extends "base.html" %}
+{% block title %}Ana Sayfa - Dr. Fatma Arı{% endblock %}
+{% block content %}
+<section class="intro">
+  <h2>Dr. Fatma Arı</h2>
+  <p>1976 Adana doğumluyum. İlkokulu Konya Sarayönü ve Adana’da tamamladıktan sonra Ortaokul ve Liseyi Adana’da bitirdim.2002 yılında Ankara Üniversitesi Tıp Fakültesinden mezun oldum. Meslek hayatıma Başkent Üniversitesi Hastanesinde Hemodiyaliz Hekimi olarak başladım.2024 yılına kadar özel sektörde muhtelif Diyaliz Merkezlerinde hem Mesul Müdür hem de Hemodiyaliz Hekimi olarak çalıştım.2019 yılında Sağlık Bakanlığının açmış olduğu Mezoterapi eğitimimi tamamladım. 2025 yılına kadar Mezoterapi ve Medikal Estetik alanında birçok eğitime katılarak bilgi birikimimi artırdıktan sonra aynı yıl Sağlık Bakanlığının açmış olduğu Estetik ve Kozmetik Hekimliği eğitimimi başarı ile tamamladım.2024 yılından bu yana da hastalarıma muayenehanemde hizmet vermekteyim.</p>
+  <p>Cilt kalitesini artırarak gençleştirme, başkalaştırmadan sağlıklı ve güzel bir cilde sahip olma ilkesinden yola çıkarak kişiye ve ihtiyaca göre tedavi protokollerini belirleyip uygulamaktayım.</p>
+</section>
 
-</head>
-<body>
-  <!-- Üst Logo ve Sosyal Medya -->
-  <header class="top-header">
-    <div class="logo">
-      <a href="#" aria-label="Ana sayfa">
-        <img class="site-logo" src="{% static 'assets/fatma_logo_son.png' %}" alt="Dr. Fatma Arı logosu">
-      </a>
-    </div>
-    <div class="social">
-      <a href="#" aria-label="Instagram" title="Instagram">
-        <img src="{% static 'assets/instagram-logo.png' %}" alt="Instagram">
-      </a>
-    </div>
-  </header>
+<section class="section services">
+  <h3>YAPTIĞIM İŞLEMLER</h3>
+  <div class="options">
+    <a class="box red" href="{% url 'botoks' %}">B<br><span>Botoks</span></a>
+    <a class="box dark" href="{% url 'dolgu' %}">D<br><span>Dolgu</span></a>
+    <a class="box accent" href="{% url 'mezoterapi' %}">M<br><span>Mezoterapi</span></a>
+  </div>
+</section>
 
-  <!-- Menü -->
-  <nav class="main-nav">
-    <ul>
-      <li><a href="#">ANA SAYFA</a></li>
-      <li><a href="#">BENJAMİN BUTTON ETKİSİ</a></li>
-      <li><a href="#">YÜZ VE DUDAK DOLGUSU</a></li>
-      <li><a href="#">AMELİYATSIZ ESTETİK</a></li>
-      <li><a href="#">İLETİŞİM</a></li>
-      <li><a href="#">HAKKIMDA</a></li>
-      <li><a href="#">KVK</a></li>
-      <li><a href="#">BLOG</a></li>
-      <li><a href="#">ENG</a></li>
-    </ul>
-  </nav>
-
-  <!-- Tanıtım -->
-  <section class="intro">
-    <h2>Dr. Fatma Arı</h2>
-    <p>
-      1976 Adana doğumluyum. İlkokulu Konya Sarayönü ve Adana’da tamamladıktan sonra Ortaokul ve Liseyi Adana’da bitirdim.2002 yılında Ankara Üniversitesi Tıp Fakültesinden mezun oldum. Meslek hayatıma Başkent Üniversitesi Hastanesinde Hemodiyaliz Hekimi olarak başladım.2024 yılına kadar özel sektörde muhtelif Diyaliz Merkezlerinde hem Mesul Müdür hem de Hemodiyaliz Hekimi olarak çalıştım.2019 yılında Sağlık Bakanlığının açmış olduğu Mezoterapi eğitimimi tamamladım. 2025 yılına kadar Mezoterapi ve Medikal Estetik alanında birçok eğitime katılarak bilgi birikimimi artırdıktan sonra aynı yıl Sağlık Bakanlığının açmış olduğu Estetik ve Kozmetik Hekimliği eğitimimi başarı ile tamamladım.2024 yılından bu yana da hastalarıma muayenehanemde hizmet vermekteyim.
-      Cilt kalitesini artırarak gençleştirme, başkalaştırmadan sağlıklı ve güzel bir cilde sahip olma ilkesinden yola çıkarak kişiye ve ihtiyaca göre tedavi protokollerini belirleyip uygulamaktayım.
-    </p>
-  </section>
-
-  <!-- Video ve Benjamin Button Tanımı -->
-  <section class="section">
-    <div class="video-text">
-      <div class="video-placeholder">[YouTube Video]</div>
-      <div>
-        <h3>BENJAMİN BUTTON ETKİSİ NEDİR?</h3>
-        <p>Benjamin Button etkisi; ameliyatsız yüz germe, gıdı eritme ve göz kapağı estetiği yapılmasına olanak veren bir yöntemdir.</p>
-        <button>BENJAMİN BUTTON ETKİSİ</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Dolgu Seçenekleri -->
-  <section class="section">
-    <h3>YÜZ VE DUDAK DOLGUSU</h3>
-    <div class="options">
-      <div class="box red">D<br><span>Dudak Dolgusu</span></div>
-      <div class="box dark">B<br><span>Botoks</span></div>
-      <div class="small-box">Burun Dolgusu</div>
-      <div class="small-box">Göz Altı Dolgusu</div>
-      <div class="small-box">Çene Dolgusu</div>
-      <div class="small-box">Yanak Dolgusu</div>
-    </div>
-  </section>
-
-  <!-- 3D Dudak Dolgusu Açıklaması -->
-  <section class="section">
-    <div class="video-text">
-      <div class="video-placeholder">[3D Dudak Videosu]</div>
-      <div>
-        <h3>3D DUDAK DOLGUSU NEDİR?</h3>
-        <p>3D dudak dolgusu, dudaklara yalnızca hacim kazandırmakla kalmayıp aynı zamanda şekil, kontur ve simetri sağlayan gelişmiş bir dolgu tekniğidir. Daha doğal, orantılı ve belirgin dudak hatları oluşturmak için uygulanır. Klasik dolguya göre daha estetik ve yüz yapısına uyumlu sonuçlar sunar.</p>
-        <button>3D DUDAK DOLGUSU</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- İletişim Formu -->
-  <section class="contact">
-    <h3>MESAJINIZI İLETİN</h3>
-    <textarea placeholder="Mesajınızı yazınız..."></textarea>
-    <div class="input-row">
-      <input type="text" placeholder="İsminizi giriniz">
-      <input type="email" placeholder="E-posta adresiniz">
-    </div>
-    <div class="checkboxes">
-      <label><input type="checkbox"> KVK Aydınlatma Metnini okudum...</label><br>
-      <label><input type="checkbox"> Açık rıza beyanını kabul ediyorum...</label>
-    </div>
-    <button class="submit">GÖNDER</button>
-  </section>
-</body>
-</html>
+<section class="contact">
+  <h3>MESAJINIZI İLETİN</h3>
+  <textarea placeholder="Mesajınızı yazınız..."></textarea>
+  <div class="input-row">
+    <input type="text" placeholder="İsminizi giriniz">
+    <input type="email" placeholder="E-posta adresiniz">
+  </div>
+  <div class="checkboxes">
+    <label><input type="checkbox"> KVK Aydınlatma Metnini okudum...</label><br>
+    <label><input type="checkbox"> Açık rıza beyanını kabul ediyorum...</label>
+  </div>
+  <button class="submit">GÖNDER</button>
+</section>
+{% endblock %}

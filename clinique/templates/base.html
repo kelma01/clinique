@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Dr. Fatma Arı{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Üst Logo ve Sosyal Medya -->
+  <header class="top-header">
+    <div class="logo">
+      <a href="{% url 'home' %}" aria-label="Ana sayfa">
+        <img class="site-logo" src="{% static 'assets/fatma_logo_son.png' %}" alt="Dr. Fatma Arı logosu">
+      </a>
+    </div>
+    <div class="social">
+      <a href="https://www.instagram.com/drfatmaari/" aria-label="Instagram" title="Instagram">
+        <img src="{% static 'assets/instagram-logo.png' %}" alt="Instagram">
+      </a>
+    </div>
+  </header>
+
+  <!-- Menü -->
+  <nav class="main-nav">
+    <ul>
+      <li><a href="{% url 'home' %}" {% if request.resolver_match.url_name == 'home' %}class="active" aria-current="page"{% endif %}>ANA SAYFA</a></li>
+      <li><a href="{% url 'botoks' %}" {% if request.resolver_match.url_name == 'botoks' %}class="active" aria-current="page"{% endif %}>BOTOKS</a></li>
+      <li><a href="{% url 'dolgu' %}" {% if request.resolver_match.url_name == 'dolgu' %}class="active" aria-current="page"{% endif %}>DOLGU</a></li>
+      <li><a href="{% url 'mezoterapi' %}" {% if request.resolver_match.url_name == 'mezoterapi' %}class="active" aria-current="page"{% endif %}>MEZOTERAPİ</a></li>
+      <li><a href="{% url 'iletisim' %}" {% if request.resolver_match.url_name == 'iletisim' %}class="active" aria-current="page"{% endif %}>İLETİŞİM</a></li>
+
+    </ul>
+  </nav>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <a class="footer-brand" href="{% url 'home' %}" aria-label="Ana sayfa">
+        <img class="site-logo" src="{% static 'assets/fatma_logo_son.png' %}" alt="Logo">
+      </a>
+
+      <div class="footer-phone">
+        <a href="tel:+905416077115" aria-label="Telefon">0541 607 71 15</a>
+      </div>
+
+      <address class="footer-info">
+        Yukarı Bahçelievler, 74. Sk. No:1 D:2, 06490 Çankaya/Ankara
+      </address>
+
+      <div class="footer-social">
+        <a href="https://www.instagram.com/drfatmaari/" aria-label="Instagram" title="Instagram">
+          <img src="{% static 'assets/instagram-logo.png' %}" alt="Instagram">
+        </a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

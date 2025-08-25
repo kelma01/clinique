@@ -19,6 +19,10 @@ from django.urls import path
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls), 
     path('', TemplateView.as_view(template_name='index.html'), name='home'),
+    path('botoks/', TemplateView.as_view(template_name='pages/botoks.html'), name='botoks'),
+    path('dolgu/', TemplateView.as_view(template_name='pages/dolgu.html'), name='dolgu'),
+    path('mezoterapi/', TemplateView.as_view(template_name='pages/mezoterapi.html'), name='mezoterapi'),
+    path('iletisim/', TemplateView.as_view(template_name='pages/iletisim.html'), name='iletisim'),
 ]

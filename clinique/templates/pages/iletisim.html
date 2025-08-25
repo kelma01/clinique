@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}İletişim - Dr. Fatma Arı{% endblock %}
+{% block content %}
+
+<section class="section">
+  <h3>İLETİŞİM</h3>
+  <p>Telefon: 0541 607 71 15</p>
+  <p>Yukarı Bahçelievler, 74. Sk. No:1 D:2, 06490 Çankaya/Ankara</p>
+</section>
+
+<section class="section map-section">
+  <h3>KONUM</h3>
+  <div class="map-embed">
+    <iframe
+      src="https://www.google.com/maps?q=Yukar%C4%B1%20Bah%C3%A7elievler%2C%2074.%20Sk.%20No%3A1%20D%3A2%2C%2006490%20%C3%87ankaya%2FAnkara&output=embed"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      allowfullscreen
+    ></iframe>
+  </div>
+  <div class="map-actions">
+    <a class="btn-map"
+       href="https://www.google.com/maps/search/?api=1&query=Yukar%C4%B1%20Bah%C3%A7elievler%2C%2074.%20Sk.%20No%3A1%20D%3A2%2C%2006490%20%C3%87ankaya%2FAnkara"
+       target="_blank" rel="noopener">Google Maps’te aç</a>
+  </div>
+</section>
+
+<section class="contact">
+  <h3>MESAJINIZI İLETİN</h3>
+  <form method="post" novalidate>
+    {% csrf_token %}
+    <textarea name="message" placeholder="Mesajınızı yazınız..."></textarea>
+    <div class="input-row">
+      <input type="text" name="name" placeholder="İsminizi giriniz">
+      <input type="email" name="email" placeholder="E-posta adresiniz">
+    </div>
+    <div class="checkboxes">
+      <label><input type="checkbox" required> KVK Aydınlatma Metnini okudum...</label><br>
+      <label><input type="checkbox" required> Açık rıza beyanını kabul ediyorum...</label>
+    </div>
+    <button type="submit" class="submit">GÖNDER</button>
+  </form>
+</section>
+
+{% endblock %}
