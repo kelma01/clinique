@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -124,3 +125,26 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# E-posta (bot hesabı ile gönderim)
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp-mail.outlook.com'   # alternatif: 'smtp.office365.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+EMAIL_TIMEOUT = 30
+
+EMAIL_HOST_USER = 'drfatmaari.bot@outlook.com'
+EMAIL_HOST_PASSWORD = 'xglrjsibfprajguc'  # App Password
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+CONTACT_TO_EMAIL = 'keremelma388@outlook.com'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {'console': {'class': 'logging.StreamHandler'}},
+    'loggers': {
+        'django.core.mail': {'handlers': ['console'], 'level': 'DEBUG'},
+        'clinique': {'handlers': ['console'], 'level': 'DEBUG'},
+    },
+}

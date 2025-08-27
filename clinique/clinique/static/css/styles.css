@@ -450,3 +450,9 @@ textarea:focus-visible {
   }
   :root { --container-pad: 16px; }
 }
+
+.alerts { max-width: var(--container-max, 1200px); margin: .5rem auto; padding: 0 var(--container-pad, 24px); }
+.alert { padding: .6rem .8rem; border-radius: 6px; margin-bottom: .5rem; }
+.alert-success { background: #e7f6ec; color: #145a32; }
+.alert-error { background: #fdecea; color: #8a1c1c; }
+.alert-info { background: #e8f4fd; color: #0b5cad; }
