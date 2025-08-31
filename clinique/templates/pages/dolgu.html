@@ -12,4 +12,22 @@
     <li>Temporal vb.</li>
   </ul>
 </section>
+<section class="contact">
+  <h3>MESAJINIZI İLETİN</h3>
+  <form method="post" action="{% url 'send-message' %}" novalidate>
+    {% csrf_token %}
+    <textarea name="message" placeholder="Mesajınızı yazınız..." required></textarea>
+    <div class="input-row">
+      <input type="text" name="name" placeholder="İsminizi giriniz">
+      <input type="email" name="email" placeholder="E-posta adresiniz">
+    </div>
+    <input type="hidden" name="next" value="{{ request.path }}">
+    <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-10000px;opacity:0;height:0;width:0;">
+    <div class="checkboxes">
+      <label><input type="checkbox" required> KVK Aydınlatma Metnini okudum...</label><br>
+      <label><input type="checkbox" required> Açık rıza beyanını kabul ediyorum...</label>
+    </div>
+    <button type="submit" class="submit">GÖNDER</button>
+  </form>
+</section>
 {% endblock %}

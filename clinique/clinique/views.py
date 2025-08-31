@@ -1,22 +1,19 @@
 from django.conf import settings
 from django.contrib import messages
-from django.core.mail import EmailMessage, BadHeaderError
+from django.core.mail import EmailMessage, BadHeaderError, send_mail
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
 from django.shortcuts import redirect
 from django.utils.html import strip_tags
 import logging
+from datetime import datetime
+from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
 def send_message(request):
     if request.method != 'POST':
         return redirect(request.META.get('HTTP_REFERER', '/'))
-
-    # Honeypot
-    if request.POST.get('website'):
-        messages.info(request, 'Mesajınız alındı.')
-        return redirect(request.POST.get('next', '/'))
 
     name = strip_tags(request.POST.get('name', '')).strip() or 'İsimsiz'
     email = strip_tags(request.POST.get('email', '')).strip()
@@ -30,7 +27,7 @@ def send_message(request):
     subject = 'Web Formu - Dr. Fatma Arı'
     body = f"Gönderen: {name}\nE-posta: {email or '-'}\nKaynak: {source}\n\nMesaj:\n{msg}"
 
-    # Reply-To için e-posta doğrula
+    # Reply-To doğrula
     reply_to = None
     if email:
         try:
@@ -43,12 +40,10 @@ def send_message(request):
         em = EmailMessage(
             subject=subject,
             body=body,
-            from_email=settings.DEFAULT_FROM_EMAIL,   # bot/adresiniz
-            to=[settings.CONTACT_TO_EMAIL],           # hedef adres
+            from_email='fatmaaribot@gmail.com',
+            to=['keremelma388@outlook.com'],
             reply_to=reply_to,
-            headers={
-                'X-Form-Path': source,
-            }
+            headers={'X-Form-Path': source},
         )
         em.send(fail_silently=False)
         messages.success(request, 'Mesajınız gönderildi. Teşekkürler.')

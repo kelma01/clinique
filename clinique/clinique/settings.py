@@ -127,17 +127,13 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # E-posta (bot hesabı ile gönderim)
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp-mail.outlook.com'   # alternatif: 'smtp.office365.com'
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'clinique.emails.email_backend.EmailBackend'
+EMAIL_HOST= 'smtp.gmail.com'
+EMAIL_HOST_USER = 'fatmaaribot@gmail.com'
+EMAIL_HOST_PASSWORD = 'mhzcdgbajgdnuazb'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_USE_SSL = False
-EMAIL_TIMEOUT = 30
-
-EMAIL_HOST_USER = 'drfatmaari.bot@outlook.com'
-EMAIL_HOST_PASSWORD = 'xglrjsibfprajguc'  # App Password
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-CONTACT_TO_EMAIL = 'keremelma388@outlook.com'
 
 LOGGING = {
     'version': 1,
@@ -148,3 +144,9 @@ LOGGING = {
         'clinique': {'handlers': ['console'], 'level': 'DEBUG'},
     },
 }
+
+'''
+fatmaaribot@gmail.com
+fatmaaribot01_
+mhzc dgba jgdn uazb
+'''
