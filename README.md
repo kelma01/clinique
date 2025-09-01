@@ -15,12 +15,22 @@ Set-ExecutionPolicy Unrestricted -Scope Process #izinlerin tanımlanması
 .\venv\Scripts\activate
 ```
 
-4. Gereksinimlerin İndirilmesi
+4. Proje Klasörüne Gitme
+```bash
+cd clinique
+```
+
+5. Gereksinimlerin İndirilmesi
 ```bash
 pip install -r requirements.txt
 ```
 
-5. Server'in ayağa kaldırılması
+6. Static Dosyaların Yüklenmesi
+```bash
+py ./manage.py collectstatic
+```
+
+7. Server'in ayağa kaldırılması
 ```bash
 py .\manage.py runserver
 ```

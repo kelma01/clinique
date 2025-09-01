@@ -31,7 +31,6 @@
       <li><a href="{% url 'dolgu' %}" {% if request.resolver_match.url_name == 'dolgu' %}class="active" aria-current="page"{% endif %}>DOLGU</a></li>
       <li><a href="{% url 'mezoterapi' %}" {% if request.resolver_match.url_name == 'mezoterapi' %}class="active" aria-current="page"{% endif %}>MEZOTERAPİ</a></li>
       <li><a href="{% url 'iletisim' %}" {% if request.resolver_match.url_name == 'iletisim' %}class="active" aria-current="page"{% endif %}>İLETİŞİM</a></li>
-
     </ul>
   </nav>
 
@@ -47,16 +46,29 @@
 
       <div class="footer-phone">
         <a href="tel:+905416077115" aria-label="Telefon">0541 607 71 15</a>
+        <div class="footer-email">
+          <a href="mailto:keremelma388@outlook.com">keremelma388@outlook.com</a>
+        </div>
       </div>
 
       <address class="footer-info">
-        Yukarı Bahçelievler, 74. Sk. No:1 D:2, 06490 Çankaya/Ankara
+        <a
+          class="footer-address-link"
+          href="https://www.google.com/maps/search/?api=1&query=Yukar%C4%B1%20Bah%C3%A7elievler%2C%2074.%20Sk.%20No%3A1%20D%3A2%2C%2006490%20%C3%87ankaya%2FAnkara"
+          target="_blank" rel="noopener"
+        >
+          Yukarı Bahçelievler, 74. Sk. No:1 D:2, 06490 Çankaya/Ankara
+        </a>
       </address>
 
       <div class="footer-social">
         <a href="https://www.instagram.com/drfatmaari/" aria-label="Instagram" title="Instagram">
           <img src="{% static 'assets/instagram-logo.png' %}" alt="Instagram">
         </a>
+      </div>
+
+      <div class="last-updated" aria-label="Son güncelleme tarihi">
+        Son güncelleme: 01.08.2025
       </div>
     </div>
   </footer>

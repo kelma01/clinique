@@ -456,3 +456,29 @@ textarea:focus-visible {
 .alert-success { background: #e7f6ec; color: #145a32; }
 .alert-error { background: #fdecea; color: #8a1c1c; }
 .alert-info { background: #e8f4fd; color: #0b5cad; }
+
+/* Footer e‑posta: beyaz ve altı çizgisiz */
+.footer-email a {
+  color: #fff;
+  text-decoration: none;
+}
+.footer-email a:hover,
+.footer-email a:focus {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Adres linki: beyaz ve altı çizgisiz */
+.footer-info,
+.footer-info a {
+  color: #fff;
+  text-decoration: none;
+}
+.footer-info a:hover,
+.footer-info a:focus {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Son güncelleme yazısı: beyaz */
+.last-updated { color: #fff; }
