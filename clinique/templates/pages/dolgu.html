@@ -1,17 +1,90 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}Dolgu - Dr. Fatma Arı{% endblock %}
 {% block content %}
 <section class="section">
   <h3>DOLGU</h3>
-  <p>Dudak, burun, tüm yüz:</p>
+
+  <p>
+    Hyalüronik asit dolguları; yüz hatlarını dengelemek, hacim kaybını yerine koymak ve ışığı daha homojen yansıtacak bir yüzey oluşturmak için kullanılan,
+    vücutla uyumlu ve zamanla güvenli şekilde çözünerek kaybolan ürünlerdir. Sonuç anında görülür; ödemin inmesi ve ürünün dokuya adapte olması için genelde
+    1–2 hafta gerekir. Uygun vakalarda kanül veya iğne ile, çoğu zaman topikal anestezik krem eşliğinde 15–30 dakikada tamamlanır.
+  </p>
+
   <ul class="procedure-list">
-    <li>Zigoma, orta yüz, göz altı</li>
-    <li>Nazolabial</li>
-    <li>Çene</li>
-    <li>Marionet</li>
-    <li>Temporal vb.</li>
+    <li>
+      <strong>Zigoma – Orta yüz – Göz altı (tear trough)</strong>
+      <p>
+        Orta yüz desteği; yorgun görünümün temel sebeplerinden biri olan hacim kaybını hedefler. Elmacık (zigoma) projeksiyonu, orta yüz desteği ve
+        uygun vakada göz altındaki çukur gölgelerin yumuşatılması ile daha dinlenmiş bir ifade elde edilir. Göz altı bölgesinde daha yumuşak ve
+        düşük higroskopik ürünler tercih edilir. Orta yüz dolgusu 12–24 ay, göz altı 9–18 ay kalıcılık gösterebilir.
+      </p>
+      <figure class="procedure-media">
+        <img src="{% static 'assets/dolgu/dolgu1.jpg' %}" alt="Orta yüz ve göz altı dolgusu örnek görseli" loading="lazy" />
+      </figure>
+    </li>
+
+    <li>
+      <strong>Nazolabial oluk</strong>
+      <p>
+        Nazolabial çizgiler çoğu zaman orta yüz sarkmasının sonucu oluşur. Bu nedenle tek çizgiyi doldurmak yerine, gerekli ise önce orta yüze
+        destek verilir; ardından oluktaki gölge nazikçe yumuşatılır. Aşırı hacimden kaçınılır; amaç kırışıklığı tamamen silmek değil, yüzün
+        doğal mimiklerini koruyarak daha taze görünüm sağlamaktır. Kalıcılık 9–12 ay civarıdır.
+      </p>
+      <figure class="procedure-media">
+        <img src="{% static 'assets/dolgu/dolgu2.jpg' %}" alt="Nazolabial oluk dolgusu örnek görseli" loading="lazy" />
+      </figure>
+    </li>
+
+    <li>
+      <strong>Çene kontürü ve profil dengesi</strong>
+      <p>
+        Çene projeksiyonu, uzunluğu ve simetrisi yüzün alt üçte birini belirler. Profil dengesinde burun, dudak ve çene ilişkisi birlikte
+        değerlendirilir. Gerekirse marionet ve çene hattı ile kombine planlanır. İlk günlerde hafif hassasiyet normaldir. Kalıcılık çoğunlukla 12–18 ay.
+      </p>
+      <figure class="procedure-media">
+        <img src="{% static 'assets/dolgu/dolgu3.jpg' %}" alt="Çene kontürü dolgusu örnek görseli" loading="lazy" />
+      </figure>
+    </li>
+
+    <li>
+      <strong>Marionet (ağız köşesi) çizgileri</strong>
+      <p>
+        Ağız köşelerinin aşağı yönlü görünümü “üzgün” ifadeye sebep olabilir. Çene ve çene hattı desteği ile birlikte planlandığında daha dengeli,
+        doğal sonuçlar elde edilir. Amaç ağız köşesini aşırı kaldırmak değil, gölgeyi yumuşatmaktır. Kalıcılık yaklaşık 9–12 ay.
+      </p>
+      <figure class="procedure-media">
+        <img src="{% static 'assets/dolgu/dolgu4.jpg' %}" alt="Marionet çizgileri dolgusu örnek görseli" loading="lazy" />
+      </figure>
+    </li>
+
+    <li>
+      <strong>Temporal (şakak) dolgusu</strong>
+      <p>
+        Şakak çöküklüğü yüzün üst yan hattında “içe göçük” bir görünüm oluşturur. Uygun düzeyde ve doğru planla uygulandığında yüz ovalini
+        gençleştirir ve kaş çevresinin desteğini artırır. Bölge anatomik olarak damarsal geçişler içerdiğinden deneyim önemlidir. Kalıcılık 12–18 ay.
+      </p>
+      <figure class="procedure-media">
+        <img src="{% static 'assets/dolgu/dolgu5.jpg' %}" alt="Temporal bölge dolgusu örnek görseli" loading="lazy" />
+      </figure>
+    </li>
   </ul>
+
+  <h4>Uygulama akışı ve bakım</h4>
+  <ul>
+    <li>Değerlendirme ve fotoğraflama sonrası kişiye özel plan yapılır; iğne/kanül seçimi bölgeye göre belirlenir.</li>
+    <li>İşlem sonrası ilk 24–48 saat sıcak banyo/sauna, ağır egzersiz, yoğun masaj ve baskıdan kaçınmanız önerilir.</li>
+    <li>Ödem/morluk gelişebilir; soğuk kompres ve başı yüksekte tutmak rahatlatır. Çoğu hasta aynı gün sosyal yaşama döner.</li>
+    <li>Kontrol randevusu genellikle 10–14. günde yapılır; gerekiyorsa küçük düzeltmeler planlanır.</li>
+  </ul>
+
+  <p style="font-size:.9rem; opacity:.8; margin-top:.75rem;">
+    Kontrendikasyonlar: Gebelik/emzirme, uygulama alanında aktif enfeksiyon, yakın zamanda yapılan diş işlemleri (geçici erteleme), bilinen ürün bileşen
+    alerjileri, pıhtılaşma bozuklukları veya antikoagülan kullanımı (doktor onayı gerekir). Önceden kalıcı dolgu hikayesi olanlarda özel değerlendirme yapılır.
+    Bu metin bilgilendirme amaçlıdır; kişisel planlama için muayene gerekir.
+  </p>
 </section>
+
 <section class="contact">
   <h3>MESAJINIZI İLETİN</h3>
   <form method="post" action="{% url 'send-message' %}" novalidate>
@@ -23,10 +96,6 @@
     </div>
     <input type="hidden" name="next" value="{{ request.path }}">
     <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-10000px;opacity:0;height:0;width:0;">
-    <div class="checkboxes">
-      <label><input type="checkbox" required> KVK Aydınlatma Metnini okudum...</label><br>
-      <label><input type="checkbox" required> Açık rıza beyanını kabul ediyorum...</label>
-    </div>
     <button type="submit" class="submit">GÖNDER</button>
   </form>
 </section>

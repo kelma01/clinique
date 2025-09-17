@@ -1,15 +1,88 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}Botoks - Dr. Fatma Arı{% endblock %}
 {% block content %}
 <section class="section">
   <h3>BOTOKS</h3>
   <ul class="procedure-list">
-    <li>Tüm yüz</li>
-    <li>Migren</li>
-    <li>Terleme (avuç içi, ayak tabanı, koltuk altı)</li>
-    <li>Masseter kası botoksu</li>
+    <li>
+      <strong>Tüm yüz</strong>
+      <p>
+        Alın çizgileri, kaş arası (glabellar bölge) ve göz kenarı “kaz ayağı” kırışıklıkları için kişiye özel planlama yapılır.
+        Amaç doğal mimikleri koruyarak dinlenmiş ve aydınlık bir görünüm elde etmektir. Uygulama yaklaşık 10–15 dakika sürer;
+        çoğunlukla anestezik krem yeterlidir. Etki 3–5 günde başlar, 10–14 günde oturur ve ortalama 4–6 ay devam eder.
+        2. haftada kontrol gerekebilir ve ihtiyaç halinde küçük düzeltmeler yapılır. İşlem sonrası aynı gün sosyal yaşama dönülebilir;
+        hafif kızarıklık/ödem görülebilir. Gebelik, emzirme, enjeksiyon bölgesinde enfeksiyon ve bazı nöromüsküler hastalıklar
+        kontrendikasyondur.
+      </p>
+      <figure class="procedure-media">
+        <img
+          src="{% static 'assets/botoks/botoks1.jpg' %}"
+          alt="Tüm yüz bölgesine yönelik botoks uygulama alanları"
+          loading="lazy"
+        />
+      </figure>
+    </li>
+
+    <li>
+      <strong>Migren</strong>
+      <p>
+        Migren profilaksisinde botulinum toksini; alın, şakak ve ense gibi tetikleyici bölgelerde sinir uçlarındaki aracıları
+        modüle ederek ağrı ataklarının sıklık/şiddetini azaltmayı hedefler. Endikasyon özellikle nöroloji değerlendirmesi sonrası,
+        sık ve yaşam kalitesini bozan atakları olan hastalardır. Seanslar genellikle 12 haftada bir planlanır; etkinin belirginleşmesi
+        2–3 seansı bulabilir. İşlem sonrasında kısa süreli hassasiyet görülebilir. Kullanılan analjezik miktarında ve atak gün sayısında
+        azalma beklenir; bireysel yanıt değişkenlik gösterebilir.
+      </p>
+      <figure class="procedure-media">
+        <img
+          src="{% static 'assets/botoks/botoks2.jpg' %}"
+          alt="Migren için botoks uygulama bölgeleri"
+          loading="lazy"
+        />
+      </figure>
+    </li>
+
+    <li>
+      <strong>Terleme (avuç içi, ayak tabanı, koltuk altı)</strong>
+      <p>
+        Hiperhidroz tedavisinde botulinum toksini ter bezlerini uyaran asetilkolin salınımını geçici olarak azaltır. İşlem öncesi
+        iyot-nişasta testi ile yoğun terleme bölgeleri işaretlenebilir. Koltuk altı uygulamalarında rahatsızlık minimaldir; avuç içi/ayak
+        tabanında gerekirse lokal anestezi uygulanır. Etki 3–7 günde başlar, 1–2 haftada oturur ve genellikle 6–9 ay sürer. Geçici
+        morluk/şişlik olabilir; avuç içi uygulamalarında nadiren geçici güçsüzlük hissi bildirilmiştir. Tedavi sonrası günlük aktiviteye
+        dönüş çoğu hastada aynıdır.
+      </p>
+      <figure class="procedure-media">
+        <img
+          src="{% static 'assets/botoks/botoks3.jpg' %}"
+          alt="Hiperhidroz (terleme) için botoks uygulama bölgeleri"
+          loading="lazy"
+        />
+      </figure>
+    </li>
+
+    <li>
+      <strong>Masseter kası botoksu</strong>
+      <p>
+        Diş sıkma/gnashing (bruksizm) ve masseter hipertrofisine bağlı yüz genişliğinde; kasın aşırı aktivitesini azaltarak hem fonksiyonel
+        rahatlama hem de alt yüz hatlarında incelme amaçlanır. Etki 2–4 haftada başlar, 6–8 haftada kontur etkisi belirginleşir ve 4–6 ay
+        kadar sürer. İlk 2–3 seans düzenli aralıklarla yapıldığında sonuçların kalıcılığı artar. Geçici çiğneme yorgunluğu hissi olabilir;
+        uygun doz ve doğru noktalama ile doğal çene fonksiyonları korunur. Çene eklemi yakınmaları varsa diş hekimi/dahili disiplinlerle
+        ortak değerlendirme önerilir.
+      </p>
+      <figure class="procedure-media">
+        <img
+          src="{% static 'assets/botoks/botoks4.jpg' %}"
+          alt="Masseter kası botoksu uygulama alanı"
+          loading="lazy"
+        />
+      </figure>
+    </li>
   </ul>
+  <p style="font-size:.9rem; opacity:.8; margin-top:.75rem;">
+    Bu içerik bilgilendirme amaçlıdır; kişisel değerlendirmeniz için muayene gereklidir.
+  </p>
 </section>
+
 <section class="contact">
   <h3>MESAJINIZI İLETİN</h3>
   <form method="post" action="{% url 'send-message' %}" novalidate>
@@ -21,10 +94,6 @@
     </div>
     <input type="hidden" name="next" value="{{ request.path }}">
     <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-10000px;opacity:0;height:0;width:0;">
-    <div class="checkboxes">
-      <label><input type="checkbox" required> KVK Aydınlatma Metnini okudum...</label><br>
-      <label><input type="checkbox" required> Açık rıza beyanını kabul ediyorum...</label>
-    </div>
     <button type="submit" class="submit">GÖNDER</button>
   </form>
 </section>

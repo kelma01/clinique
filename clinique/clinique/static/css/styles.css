@@ -309,6 +309,19 @@ textarea:focus-visible {
 }
 
 .procedure-list { margin: .5rem 0 0 1.2rem; line-height: 1.6; }
+/* Prosedür görselleri (dolgu/botoks sayfaları) */
+.procedure-list { list-style: none; padding-left: 0; }
+.procedure-list li { margin-bottom: 2rem; }
+.procedure-media { max-width: 720px; margin: .75rem auto; }
+.procedure-media img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  display: block;
+}
 /* Footer (outro) */
 .site-footer {
   border-top: 1px solid #222;

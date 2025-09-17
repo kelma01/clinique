@@ -1,15 +1,99 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}Mezoterapi - Dr. Fatma Arı{% endblock %}
 {% block content %}
 <section class="section">
   <h3>MEZOTERAPİ</h3>
+
+  <p>
+    Mezoterapi; vitamin, mineral, aminoasit, peptit, hyalüronik asit gibi içeriklerin çok ince iğnelerle cildin orta tabakasına
+    (mezoderm) düşük dozlarda verilmesi prensibine dayanır. Amaç; dolaşımı desteklemek, hedef dokuda hidrasyon ve onarım süreçlerini
+    tetiklemek ve cildin kendi yenilenme kapasitesinden faydalanmaktır. Seanslar kısa sürer, sosyal hayata dönüş çoğunlukla aynıdır.
+  </p>
+
   <ul class="procedure-list">
-    <li>Saç, yüz, ağrı</li>
-    <li>Yağ mezoterapisi (göbek, bacak, gıdı)</li>
-    <li>PRP (saç, yüz vb.)</li>
-    <li>Dermapen</li>
+    <li>
+      <strong>Saç mezoterapisi</strong>
+      <p>
+        Saç derisinde dolaşımı ve kıl kökü çevresindeki beslenmeyi destekleyen kokteyllerle yapılır. Mevsimsel dökülme, stres ve
+        zayıflayan saç tellerinde güçlenme ve parlaklık hedeflenir. Seanslar genellikle ilk ay haftalık/iki haftada bir, devamında
+        aylık bakım şeklinde planlanır. Eş zamanlı PRP ile kombine edildiğinde yanıt artabilir. İşlem sonrası birkaç saat yıkama ve
+        yoğun terlemeden kaçınılması önerilir.
+      </p>
+      
+    </li>
+
+    <li>
+      <strong>Yüz mezoterapisi (nem/ışıltı)</strong>
+      <p>
+        İnce çizgiler, mat görünüm ve kurulukta; serbest ve çapraz bağlı olmayan hyalüronik asit ile vitamin‑peptit içerikleri
+        mikro enjeksiyonlar halinde verilir. Amaç cildi içeriden nemlendirmek ve “healthy glow” etkisini artırmaktır. Çoğu vakada
+        2–4 hafta arayla 3–4 seans, ardından mevsimsel bakım uygundur. İnce iğne izleri aynı gün içinde kaybolur; gerekirse fondötenle
+        kapatılabilir.
+      </p>
+      <figure class="procedure-media">
+        <img src="{% static 'assets/mezo/mezo2.jpg' %}" alt="Yüz mezoterapisi görseli" loading="lazy" />
+      </figure>
+    </li>
+
+    <li>
+      <strong>Ağrı mezoterapisi</strong>
+      <p>
+        Boyun‑sırt kas spazmları, miyofasyal tetik noktalar ve spor yaralanmalarında; antiinflamatuar/analjezik ve kas gevşetici
+        içerikler çok yüzeyel ve düşük dozlarda uygulanır. Amaç sistemik ilaç yükünü azaltarak bölgesel rahatlama sağlamaktır.
+        Planlama fizyoterapi ve egzersiz önerileriyle desteklenir. İşlem sonrasında kısa süreli hassasiyet olabilir.
+      </p>
+      <figure class="procedure-media">
+        <img src="{% static 'assets/mezo/mezo1.jpg' %}" alt="Saç mezoterapisi görseli" loading="lazy" />
+      </figure>
+    </li>
+
+    <li>
+      <strong>Yağ mezoterapisi (göbek, bacak, gıdı)</strong>
+      <p>
+        Küçük‑orta hacimli lokal yağ fazlalıklarında enjeksiyon lipoliz yaklaşımıdır. Amaç yağ hücre zarını hedefleyerek hacmi
+        kademeli azaltmak ve konturu yumuşatmaktır. Gıdı bölgesinde 4–6 hafta arayla 2–4 seans planlanabilir; göbek‑bacak gibi
+        alanlarda hasta seçimi önemlidir. Uygulama sonrası 2–3 gün ödem/hassasiyet beklenir; lenfatik drenajı desteklemek için su
+        tüketimi ve hafif yürüyüş önerilir. Hamilelik, emzirme, aktif enfeksiyon ve ciddi karaciğer hastalıklarında uygulanmaz.
+      </p>
+    </li>
+
+    <li>
+      <strong>PRP (Platelet Rich Plasma)</strong>
+      <p>
+        Hastanın kendi kanından santrifüj ile trombositten zengin plazma elde edilir ve saçlı deri veya yüz gibi hedef alanlara
+        enjekte edilir. Trombositlerin büyüme faktörleri doku iyileşmesi ve kolajen sentezini destekler. Saç için genelde 4–6 hafta
+        arayla 3 seans, yüz için 3–4 seans ve sonrası bakım seansları planlanır. Otolog olduğu için alerji riski çok düşüktür.
+      </p>
+    </li>
+
+    <li>
+      <strong>Dermapen (mikroiğneleme)</strong>
+      <p>
+        Kontrollü mikrokanallar oluşturarak cildin onarım sürecini uyarır; ince çizgi, gözenek ve akne skarı görünümünde iyileşme
+        hedeflenir. Mezoterapi kokteylleri/PRP ile kombine edildiğinde kanal yoluyla etkin madde geçirgenliği artar. İşlem sonrası
+        24–48 saat kızarıklık normaldir; güneşten korunma ve nazik nemlendirme önemlidir.
+      </p>
+      <figure class="procedure-media">
+        <img src="{% static 'assets/mezo/mezo3.jpg' %}" alt="Ağrı mezoterapisi görseli" loading="lazy" />
+      </figure>
+    </li>
   </ul>
+
+  <h4>Uygulama akışı ve bakım</h4>
+  <ul>
+    <li>Muayene ve fotoğraflama sonrası hedef alan ve seans şeması kişiye özel belirlenir.</li>
+    <li>Topikal anestezik krem çoğu zaman yeterlidir; işlem süresi 10–30 dakikadır.</li>
+    <li>İşlem sonrası ilk 24 saat sauna/hamam, yoğun spor ve asidik‑iritan kozmetikten kaçınınız.</li>
+    <li>Güneşten koruyucu kullanımı ve yeterli hidrasyon iyileşmeyi destekler.</li>
+    <li>Gebelik, emzirme, uygulama alanında aktif enfeksiyon ve ciddi alerji hikayelerinde işlem ertelenebilir.</li>
+  </ul>
+
+  <p style="font-size:.9rem; opacity:.8; margin-top:.75rem;">
+    Bu bilgiler genel bilgilendirme amaçlıdır; kişisel planlama için hekim değerlendirmesi gerekir.
+  </p>
 </section>
+
 <section class="contact">
   <h3>MESAJINIZI İLETİN</h3>
   <form method="post" action="{% url 'send-message' %}" novalidate>
@@ -21,10 +105,6 @@
     </div>
     <input type="hidden" name="next" value="{{ request.path }}">
     <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-10000px;opacity:0;height:0;width:0;">
-    <div class="checkboxes">
-      <label><input type="checkbox" required> KVK Aydınlatma Metnini okudum...</label><br>
-      <label><input type="checkbox" required> Açık rıza beyanını kabul ediyorum...</label>
-    </div>
     <button type="submit" class="submit">GÖNDER</button>
   </form>
 </section>
