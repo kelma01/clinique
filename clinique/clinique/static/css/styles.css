@@ -308,6 +308,34 @@ textarea:focus-visible {
   font-family: 'Bebas Neue', sans-serif;
 }
 
+/* Ana menü alt menü (dropdown) */
+.main-nav ul { list-style: none; }
+.main-nav .has-submenu { position: relative; }
+.main-nav .submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,.08);
+  box-shadow: 0 6px 18px rgba(0,0,0,.12);
+  padding: 6px 0;
+  display: none;
+  z-index: 1000;
+}
+.main-nav .submenu li { margin: 0; }
+.main-nav .submenu a {
+  display: block;
+  padding: 10px 14px;
+  color: #111;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.main-nav .submenu a:hover,
+.main-nav .submenu a:focus { background: #f5f5f5; }
+.main-nav .has-submenu:hover .submenu,
+.main-nav .has-submenu:focus-within .submenu { display: block; }
+
 .procedure-list { margin: .5rem 0 0 1.2rem; line-height: 1.6; }
 /* Prosedür görselleri (dolgu/botoks sayfaları) */
 .procedure-list { list-style: none; padding-left: 0; }

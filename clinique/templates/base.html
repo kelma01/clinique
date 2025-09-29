@@ -27,9 +27,37 @@
   <nav class="main-nav">
     <ul>
       <li><a href="{% url 'home' %}" {% if request.resolver_match.url_name == 'home' %}class="active" aria-current="page"{% endif %}>ANA SAYFA</a></li>
-      <li><a href="{% url 'botoks' %}" {% if request.resolver_match.url_name == 'botoks' %}class="active" aria-current="page"{% endif %}>BOTOKS</a></li>
-      <li><a href="{% url 'dolgu' %}" {% if request.resolver_match.url_name == 'dolgu' %}class="active" aria-current="page"{% endif %}>DOLGU</a></li>
-      <li><a href="{% url 'mezoterapi' %}" {% if request.resolver_match.url_name == 'mezoterapi' %}class="active" aria-current="page"{% endif %}>MEZOTERAPİ</a></li>
+      <li class="has-submenu">
+        <a href="{% url 'botoks' %}" {% if request.resolver_match.url_name == 'botoks' %}class="active" aria-current="page"{% endif %}>BOTOKS</a>
+        <ul class="submenu" aria-label="Botoks alt menü">
+          <li><a href="{% url 'botoks' %}#tum-yuz">Tüm yüz</a></li>
+          <li><a href="{% url 'botoks' %}#migren">Migren</a></li>
+          <li><a href="{% url 'botoks' %}#terleme">Terleme</a></li>
+          <li><a href="{% url 'botoks' %}#masseter">Masseter</a></li>
+        </ul>
+      </li>
+      <li class="has-submenu">
+        <a href="{% url 'dolgu' %}" {% if request.resolver_match.url_name == 'dolgu' %}class="active" aria-current="page"{% endif %}>YÜZ VE DUDAK ESTETİĞİ</a>
+        <ul class="submenu" aria-label="Dolgu alt menü">
+          <li><a href="{% url 'dolgu' %}#zigoma">Zigoma</a></li>
+          <li><a href="{% url 'dolgu' %}#nazolabial">Nazolabial</a></li>
+          <li><a href="{% url 'dolgu' %}#cene">Çene</a></li>
+          <li><a href="{% url 'dolgu' %}#marionet">Marionet</a></li>
+          <li><a href="{% url 'dolgu' %}#temporal">Temporal</a></li>
+        </ul>
+      </li>
+      <li class="has-submenu">
+        <a href="{% url 'mezoterapi' %}" {% if request.resolver_match.url_name == 'mezoterapi' %}class="active" aria-current="page"{% endif %}>MEZOTERAPİ</a>
+        <ul class="submenu" aria-label="Dolgu alt menü">
+          <li><a href="{% url 'mezoterapi' %}#sac-mezoterapisi">Saç Mezoterapisi</a></li>
+          <li><a href="{% url 'mezoterapi' %}#yuz-mezoterapisi">Yüz Mezoterapisi</a></li>
+          <li><a href="{% url 'mezoterapi' %}#agri-mezoterapisi">Ağrı Mezoterapisi</a></li>
+          <li><a href="{% url 'mezoterapi' %}#yag-mezoterapisi">Yağ Mezoterapisi</a></li>
+          <li><a href="{% url 'mezoterapi' %}#prp">PRP</a></li>
+          <li><a href="{% url 'mezoterapi' %}#dermapen">Dermapen</a></li>
+        </ul>
+      </li>
+
       <li><a href="{% url 'iletisim' %}" {% if request.resolver_match.url_name == 'iletisim' %}class="active" aria-current="page"{% endif %}>İLETİŞİM</a></li>
     </ul>
   </nav>
