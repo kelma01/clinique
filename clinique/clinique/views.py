@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.core.mail import EmailMessage, BadHeaderError, send_mail
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.utils.html import strip_tags
 import logging
 from datetime import datetime
@@ -54,3 +54,7 @@ def send_message(request):
         messages.error(request, 'Mesaj gönderilemedi. Lütfen daha sonra tekrar deneyin.')
 
     return redirect(source)
+
+
+def hakkimda(request):
+    return render(request, 'pages/hakkimda.html')

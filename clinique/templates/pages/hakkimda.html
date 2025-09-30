@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Ana Sayfa - Dr. Fatma Arı{% endblock %}
+{% block content %}
+<section class="intro">
+  <h2>Dr. Fatma Arı</h2>
+  <p>1976 Adana doğumluyum. İlkokulu Konya Sarayönü ve Adana’da tamamladıktan sonra Ortaokul ve Liseyi Adana’da bitirdim.2002 yılında Ankara Üniversitesi Tıp Fakültesinden mezun oldum. Meslek hayatıma Başkent Üniversitesi Hastanesinde Hemodiyaliz Hekimi olarak başladım.2024 yılına kadar özel sektörde muhtelif Diyaliz Merkezlerinde hem Mesul Müdür hem de Hemodiyaliz Hekimi olarak çalıştım.2019 yılında Sağlık Bakanlığının açmış olduğu Mezoterapi eğitimimi tamamladım. 2025 yılına kadar Mezoterapi ve Medikal Estetik alanında birçok eğitime katılarak bilgi birikimimi artırdıktan sonra aynı yıl Sağlık Bakanlığının açmış olduğu Estetik ve Kozmetik Hekimliği eğitimimi başarı ile tamamladım.2024 yılından bu yana da hastalarıma muayenehanemde hizmet vermekteyim.</p>
+  <p>Cilt kalitesini artırarak gençleştirme, başkalaştırmadan sağlıklı ve güzel bir cilde sahip olma ilkesinden yola çıkarak kişiye ve ihtiyaca göre tedavi protokollerini belirleyip uygulamaktayım.</p>
+</section>
+
+<section class="section services">
+  <h3>YAPTIĞIM İŞLEMLER</h3>
+  <div class="options">
+    <a class="box red" href="{% url 'botoks' %}">B<br><span>Botoks</span></a>
+    <a class="box dark" href="{% url 'dolgu' %}">D<br><span>Dolgu</span></a>
+    <a class="box accent" href="{% url 'mezoterapi' %}">M<br><span>Mezoterapi</span></a>
+  </div>
+</section>
+
+<section class="contact">
+  <h3>MESAJINIZI İLETİN</h3>
+  <form method="post" action="{% url 'send-message' %}" novalidate>
+    {% csrf_token %}
+    <textarea name="message" placeholder="Mesajınızı yazınız..." required></textarea>
+    <div class="input-row">
+      <input type="text" name="name" placeholder="İsminizi giriniz">
+      <input type="email" name="email" placeholder="E-posta adresiniz">
+    </div>
+    <input type="hidden" name="next" value="{{ request.path }}">
+    <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-10000px;opacity:0;height:0;width:0;">
+    <button type="submit" class="submit">GÖNDER</button>
+  </form>
+</section>
+{% endblock %}

@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.views.generic import TemplateView
-from .views import send_message
+from .views import send_message, hakkimda
 
 urlpatterns = [
     # path('admin/', admin.site.urls), 
@@ -27,4 +27,5 @@ urlpatterns = [
     path('mezoterapi/', TemplateView.as_view(template_name='pages/mezoterapi.html'), name='mezoterapi'),
     path('iletisim/', TemplateView.as_view(template_name='pages/iletisim.html'), name='iletisim'),
     path('contact/submit/', send_message, name='send-message'),
+    path('hakkimda/', hakkimda, name='hakkimda'),
 ]
