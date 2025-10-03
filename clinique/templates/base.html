@@ -53,6 +53,8 @@
             <li><a href="{% url 'mezoterapi' %}#dermapen">Dermapen</a></li>
           </ul>
         </li>
+        <!-- EKLENDİ: KVKK -->
+        <li><a href="{% url 'kvkk' %}" {% if request.resolver_match.url_name == 'kvkk' %}class="active" aria-current="page"{% endif %}>KVKK</a></li>
 
         <li><a href="{% url 'hakkimda' %}" {% if request.resolver_match.url_name == 'hakkimda' %}class="active" aria-current="page"{% endif %}>HAKKIMDA</a></li>
         <li><a href="{% url 'iletisim' %}" {% if request.resolver_match.url_name == 'iletisim' %}class="active" aria-current="page"{% endif %}>İLETİŞİM</a></li>
