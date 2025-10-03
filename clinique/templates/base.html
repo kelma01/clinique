@@ -71,32 +71,45 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <a class="footer-brand" href="{% url 'home' %}" aria-label="Ana sayfa">
-        <img class="site-logo" src="{% static 'assets/fatma_logo_son.png' %}" alt="Logo">
-      </a>
+    <div class="footer-inner">
+      <div class="footer-col footer-col--brand" aria-label="Logo">
+        <a class="footer-brand" href="{% url 'home' %}" aria-label="Ana sayfa">
+          <img class="footer-logo-img" src="{% static 'assets/fatma_logo_son.png' %}" alt="Logo">
+        </a>
+      </div>
 
-      <div class="footer-phone">
-        <a href="tel:+905416077115" aria-label="Telefon">0541 607 71 15</a>
-        <div class="footer-email">
+      <div class="footer-col footer-col--contact" aria-label="İletişim">
+        <strong class="footer-col-heading">İletişim</strong>
+        <div class="footer-contact-item">
+          <a href="tel:+905416077115" aria-label="Telefon">0541 607 71 15</a>
+        </div>
+        <div class="footer-contact-item footer-email">
           <a href="mailto:keremelma388@outlook.com">keremelma388@outlook.com</a>
         </div>
       </div>
 
-      <address class="footer-info">
-        <a class="footer-address-link" href="https://www.google.com/maps/search/?api=1&query=Yukar%C4%B1%20Bah%C3%A7elievler%2C%2074.%20Sk.%20No%3A1%20D%3A2%2C%2006490%20%C3%87ankaya%2FAnkara" target="_blank" rel="noopener">
-          Yukarı Bahçelievler, 74. Sk. No:1 D:2, 06490 Çankaya/Ankara
-        </a>
-      </address>
-
-      <div class="footer-social">
-        <a href="https://www.instagram.com/drfatmaari/" aria-label="Instagram" title="Instagram">
-          <img src="{% static 'assets/instagram-logo.png' %}" alt="Instagram">
-        </a>
+      <div class="footer-col footer-col--hours" aria-label="Çalışma Saatleri">
+        <strong>Çalışma Saatleri</strong>
+        <div>Hafta içi: 09:00 - 18:00</div>
+        <div>Cumartesi: 09:00 - 13:00</div>
       </div>
 
-      <div class="last-updated" aria-label="Son güncelleme tarihi">
-        Son güncelleme: 01.08.2025
+      <div class="footer-col footer-col--social" aria-label="Sosyal Medya">
+        <strong>Sosyal</strong>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/drfatmaari/" aria-label="Instagram" title="Instagram">
+            <img src="{% static 'assets/instagram-logo.png' %}" alt="Instagram">
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col footer-col--address" aria-label="Adres">
+        <strong class="footer-col-heading">Adres</strong>
+        <address class="footer-address">
+          <a class="footer-address-link" href="https://www.google.com/maps/search/?api=1&query=Yukar%C4%B1%20Bah%C3%A7elievler%2C%2074.%20Sk.%20No%3A1%20D%3A2%2C%2006490%20%C3%87ankaya%2FAnkara" target="_blank" rel="noopener">
+            Yukarı Bahçelievler, 74. Sk. No:1 D:2, 06490 Çankaya/Ankara
+          </a>
+        </address>
       </div>
     </div>
   </footer>
