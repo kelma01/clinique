@@ -41,7 +41,7 @@ def send_message(request):
             subject=subject,
             body=body,
             from_email='fatmaaribot@gmail.com',
-            to=['keremelma388@outlook.com'],
+            to=['fatmaaridr@gmail.com'],
             reply_to=reply_to,
             headers={'X-Form-Path': source},
         )

@@ -486,7 +486,7 @@ textarea:focus-visible {
 }
 .footer-social a:hover img,
 .footer-social a:focus img {
-  filter: invert(1) brightness(0.85);
+  filter: brightness(0.85);
 }
 
 /* Footer telefon linki: underline ve mavi/visited renk yok */
@@ -621,3 +621,14 @@ textarea:focus-visible {
 
 /* Son güncelleme yazısı: beyaz */
 .last-updated { color: #fff; }
+
+/* Footer: yasal bilgilendirme */
+.legal-disclaimer {
+  color: #9aa0a6;               /* gri ton */
+  font-size: .9rem;
+  line-height: 1.5;
+  text-align: center;
+  padding: 12px var(--container-pad) 16px;
+  border-top: 1px solid rgba(255,255,255,.08); /* koyu footer için */
+}
+.legal-disclaimer p { margin: .25rem 0; }
