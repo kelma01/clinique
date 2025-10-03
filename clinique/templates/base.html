@@ -16,11 +16,9 @@
       </a>
     </div>
 
-    <!-- Menü artık header içinde -->
     <nav class="main-nav">
       <ul>
         <li><a href="{% url 'home' %}" {% if request.resolver_match.url_name == 'home' %}class="active" aria-current="page"{% endif %}>ANA SAYFA</a></li>
-
         <li class="has-submenu">
           <a href="{% url 'botoks' %}" {% if request.resolver_match.url_name == 'botoks' %}class="active" aria-current="page"{% endif %}>BOTOKS</a>
           <ul class="submenu" aria-label="Botoks alt menü">
@@ -30,7 +28,6 @@
             <li><a href="{% url 'botoks' %}#masseter">Masseter</a></li>
           </ul>
         </li>
-
         <li class="has-submenu">
           <a href="{% url 'dolgu' %}" {% if request.resolver_match.url_name == 'dolgu' %}class="active" aria-current="page"{% endif %}>YÜZ VE DUDAK ESTETİĞİ</a>
           <ul class="submenu" aria-label="Dolgu alt menü">
@@ -41,7 +38,6 @@
             <li><a href="{% url 'dolgu' %}#temporal">Temporal</a></li>
           </ul>
         </li>
-
         <li class="has-submenu">
           <a href="{% url 'mezoterapi' %}" {% if request.resolver_match.url_name == 'mezoterapi' %}class="active" aria-current="page"{% endif %}>MEZOTERAPİ</a>
           <ul class="submenu" aria-label="Mezoterapi alt menü">
@@ -53,9 +49,7 @@
             <li><a href="{% url 'mezoterapi' %}#dermapen">Dermapen</a></li>
           </ul>
         </li>
-        <!-- EKLENDİ: KVKK -->
         <li><a href="{% url 'kvkk' %}" {% if request.resolver_match.url_name == 'kvkk' %}class="active" aria-current="page"{% endif %}>KVKK</a></li>
-
         <li><a href="{% url 'hakkimda' %}" {% if request.resolver_match.url_name == 'hakkimda' %}class="active" aria-current="page"{% endif %}>HAKKIMDA</a></li>
         <li><a href="{% url 'iletisim' %}" {% if request.resolver_match.url_name == 'iletisim' %}class="active" aria-current="page"{% endif %}>İLETİŞİM</a></li>
       </ul>
@@ -66,7 +60,7 @@
         <img src="{% static 'assets/instagram-logo.png' %}" alt="Instagram">
       </a>
     </div>
-  </header>
+</header>
 
   <main>
     {% block content %}{% endblock %}
@@ -97,7 +91,7 @@
       </div>
 
       <div class="footer-col footer-col--social" aria-label="Sosyal Medya">
-        <strong>Sosyal</strong>
+        <strong>Sosyal Medya</strong>
         <div class="footer-social">
           <a href="https://www.instagram.com/drfatmaari/" aria-label="Instagram" title="Instagram">
             <img src="{% static 'assets/instagram-logo.png' %}" alt="Instagram">
