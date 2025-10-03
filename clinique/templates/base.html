@@ -9,59 +9,62 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Üst Logo ve Sosyal Medya -->
   <header class="top-header">
     <div class="logo">
       <a href="{% url 'home' %}" aria-label="Ana sayfa">
         <img class="site-logo" src="{% static 'assets/fatma_logo_son.png' %}" alt="Dr. Fatma Arı logosu">
       </a>
     </div>
+
+    <!-- Menü artık header içinde -->
+    <nav class="main-nav">
+      <ul>
+        <li><a href="{% url 'home' %}" {% if request.resolver_match.url_name == 'home' %}class="active" aria-current="page"{% endif %}>ANA SAYFA</a></li>
+
+        <li class="has-submenu">
+          <a href="{% url 'botoks' %}" {% if request.resolver_match.url_name == 'botoks' %}class="active" aria-current="page"{% endif %}>BOTOKS</a>
+          <ul class="submenu" aria-label="Botoks alt menü">
+            <li><a href="{% url 'botoks' %}#tum-yuz">Tüm yüz</a></li>
+            <li><a href="{% url 'botoks' %}#migren">Migren</a></li>
+            <li><a href="{% url 'botoks' %}#terleme">Terleme</a></li>
+            <li><a href="{% url 'botoks' %}#masseter">Masseter</a></li>
+          </ul>
+        </li>
+
+        <li class="has-submenu">
+          <a href="{% url 'dolgu' %}" {% if request.resolver_match.url_name == 'dolgu' %}class="active" aria-current="page"{% endif %}>YÜZ VE DUDAK ESTETİĞİ</a>
+          <ul class="submenu" aria-label="Dolgu alt menü">
+            <li><a href="{% url 'dolgu' %}#zigoma">Zigoma</a></li>
+            <li><a href="{% url 'dolgu' %}#nazolabial">Nazolabial</a></li>
+            <li><a href="{% url 'dolgu' %}#cene">Çene</a></li>
+            <li><a href="{% url 'dolgu' %}#marionet">Marionet</a></li>
+            <li><a href="{% url 'dolgu' %}#temporal">Temporal</a></li>
+          </ul>
+        </li>
+
+        <li class="has-submenu">
+          <a href="{% url 'mezoterapi' %}" {% if request.resolver_match.url_name == 'mezoterapi' %}class="active" aria-current="page"{% endif %}>MEZOTERAPİ</a>
+          <ul class="submenu" aria-label="Mezoterapi alt menü">
+            <li><a href="{% url 'mezoterapi' %}#sac-mezoterapisi">Saç Mezoterapisi</a></li>
+            <li><a href="{% url 'mezoterapi' %}#yuz-mezoterapisi">Yüz Mezoterapisi</a></li>
+            <li><a href="{% url 'mezoterapi' %}#agri-mezoterapisi">Ağrı Mezoterapisi</a></li>
+            <li><a href="{% url 'mezoterapi' %}#yag-mezoterapisi">Yağ Mezoterapisi</a></li>
+            <li><a href="{% url 'mezoterapi' %}#prp">PRP</a></li>
+            <li><a href="{% url 'mezoterapi' %}#dermapen">Dermapen</a></li>
+          </ul>
+        </li>
+
+        <li><a href="{% url 'hakkimda' %}" {% if request.resolver_match.url_name == 'hakkimda' %}class="active" aria-current="page"{% endif %}>HAKKIMDA</a></li>
+        <li><a href="{% url 'iletisim' %}" {% if request.resolver_match.url_name == 'iletisim' %}class="active" aria-current="page"{% endif %}>İLETİŞİM</a></li>
+      </ul>
+    </nav>
+
     <div class="social">
       <a href="https://www.instagram.com/drfatmaari/" aria-label="Instagram" title="Instagram">
         <img src="{% static 'assets/instagram-logo.png' %}" alt="Instagram">
       </a>
     </div>
   </header>
-
-  <!-- Menü -->
-  <nav class="main-nav">
-    <ul>
-      <li><a href="{% url 'home' %}" {% if request.resolver_match.url_name == 'home' %}class="active" aria-current="page"{% endif %}>ANA SAYFA</a></li>
-      <li class="has-submenu">
-        <a href="{% url 'botoks' %}" {% if request.resolver_match.url_name == 'botoks' %}class="active" aria-current="page"{% endif %}>BOTOKS</a>
-        <ul class="submenu" aria-label="Botoks alt menü">
-          <li><a href="{% url 'botoks' %}#tum-yuz">Tüm yüz</a></li>
-          <li><a href="{% url 'botoks' %}#migren">Migren</a></li>
-          <li><a href="{% url 'botoks' %}#terleme">Terleme</a></li>
-          <li><a href="{% url 'botoks' %}#masseter">Masseter</a></li>
-        </ul>
-      </li>
-      <li class="has-submenu">
-        <a href="{% url 'dolgu' %}" {% if request.resolver_match.url_name == 'dolgu' %}class="active" aria-current="page"{% endif %}>YÜZ VE DUDAK ESTETİĞİ</a>
-        <ul class="submenu" aria-label="Dolgu alt menü">
-          <li><a href="{% url 'dolgu' %}#zigoma">Zigoma</a></li>
-          <li><a href="{% url 'dolgu' %}#nazolabial">Nazolabial</a></li>
-          <li><a href="{% url 'dolgu' %}#cene">Çene</a></li>
-          <li><a href="{% url 'dolgu' %}#marionet">Marionet</a></li>
-          <li><a href="{% url 'dolgu' %}#temporal">Temporal</a></li>
-        </ul>
-      </li>
-      <li class="has-submenu">
-        <a href="{% url 'mezoterapi' %}" {% if request.resolver_match.url_name == 'mezoterapi' %}class="active" aria-current="page"{% endif %}>MEZOTERAPİ</a>
-        <ul class="submenu" aria-label="Dolgu alt menü">
-          <li><a href="{% url 'mezoterapi' %}#sac-mezoterapisi">Saç Mezoterapisi</a></li>
-          <li><a href="{% url 'mezoterapi' %}#yuz-mezoterapisi">Yüz Mezoterapisi</a></li>
-          <li><a href="{% url 'mezoterapi' %}#agri-mezoterapisi">Ağrı Mezoterapisi</a></li>
-          <li><a href="{% url 'mezoterapi' %}#yag-mezoterapisi">Yağ Mezoterapisi</a></li>
-          <li><a href="{% url 'mezoterapi' %}#prp">PRP</a></li>
-          <li><a href="{% url 'mezoterapi' %}#dermapen">Dermapen</a></li>
-        </ul>
-      </li>
-
-      <li><a href="{% url 'hakkimda' %}" {% if request.resolver_match.url_name == 'hakkimda' %}class="active" aria-current="page"{% endif %}>HAKKIMDA</a></li>
-      <li><a href="{% url 'iletisim' %}" {% if request.resolver_match.url_name == 'iletisim' %}class="active" aria-current="page"{% endif %}>İLETİŞİM</a></li>
-    </ul>
-  </nav>
 
   <main>
     {% block content %}{% endblock %}
@@ -81,11 +84,7 @@
       </div>
 
       <address class="footer-info">
-        <a
-          class="footer-address-link"
-          href="https://www.google.com/maps/search/?api=1&query=Yukar%C4%B1%20Bah%C3%A7elievler%2C%2074.%20Sk.%20No%3A1%20D%3A2%2C%2006490%20%C3%87ankaya%2FAnkara"
-          target="_blank" rel="noopener"
-        >
+        <a class="footer-address-link" href="https://www.google.com/maps/search/?api=1&query=Yukar%C4%B1%20Bah%C3%A7elievler%2C%2074.%20Sk.%20No%3A1%20D%3A2%2C%2006490%20%C3%87ankaya%2FAnkara" target="_blank" rel="noopener">
           Yukarı Bahçelievler, 74. Sk. No:1 D:2, 06490 Çankaya/Ankara
         </a>
       </address>
@@ -101,6 +100,7 @@
       </div>
     </div>
   </footer>
+
   <a href="https://wa.me/905050156520" target="_blank" style="position: fixed; bottom: 20px; right: 20px; background-color: #25D366; color: white; padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 2px 8px rgba(0,0,0,0.2); z-index: 1000;">
     WhatsApp ile iletişime geçin
   </a>

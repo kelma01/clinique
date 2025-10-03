@@ -4,7 +4,7 @@
 :root {
   --container-max: 1280px;
   --container-pad: 24px;
-  --header-pad-y: 0.75rem;
+  --header-pad-y: 1.25rem; /* daha yüksek header */
   --brand-gap: 0.6rem;
   --social-size: 1.5rem; /* header/footer ikon boyutu */
 
@@ -35,47 +35,92 @@ body {
   top: 0;
   z-index: 100;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   gap: 1rem;
   padding: var(--header-pad-y) var(--container-pad);
-  background-color: #fff;
-  border-bottom: 1px solid #ccc;
+  background-color: #000;              /* siyah header */
+  border-bottom: 1px solid #111;       /* siyaha uygun sınır */
 }
 
-/* Header içeriğini ortala ve genişliği sınırla */
-.top-header > * { flex: 1; }
-.top-header::before,
-.top-header::after { content: ''; flex: 1; }
+/* Önceki ortalama hack'ini kapat */
+.top-header > * { flex: 0 0 auto; }
+.top-header::before, .top-header::after { content: none; }
 
-/* Logo %20 büyütüldü */
+/* Logo biraz daha büyük */
 .site-logo {
-  height: calc(clamp(2.4rem, 6vw, 3.2rem) * 1.2);
-  max-height: calc(clamp(2.4rem, 6vw, 3.2rem) * 1.2);
+  height: calc(clamp(2.6rem, 6.5vw, 3.6rem) * 1.35);   /* önceki *1.1 idi */
+  max-height: calc(clamp(2.6rem, 6.5vw, 3.6rem) * 1.35);
   width: auto;
   display: block;
 }
 
-/* Mobilde çok büyümemesi için sınırla */
-@media (max-width: 768px) {
-  .site-logo {
-    max-height: calc(3rem * 1.2);
-    height: calc(2.75rem * 1.2);
-  }
+/* Logo'yu akışı bozmadan, container genişliğine orantılı kaydır */
+.top-header .logo { position: relative; }
+.top-header .logo .site-logo {
+  /* 0.234 ≈ 1280px genişlikte ~300px eder. Min/max ile sınırla. */
+  --logo-shift: clamp(8px, calc(min(100vw, var(--container-max)) * 0.234), 340px);
+  transform: translateX(var(--logo-shift));
+  will-change: transform;
 }
 
-/* Sosyal alanı sağa hizala */
-.social { text-align: right; white-space: nowrap; }
-.social a { margin-left: 0; }
-.social img {
-  height: var(--social-size);
-  width: var(--social-size);
+/* Menü header içinde (siyah zemin) */
+.main-nav { flex: 1 1 auto; background-color: #000; }
+.main-nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;     /* istersen flex-start yap */
+  gap: 0;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  background: transparent;
+}
+.main-nav ul li a {
+  color: #fff;  /* beyaz metin */
+  padding: .75rem 1rem;
   display: inline-block;
+  text-decoration: none;
+  border-radius: 6px;
 }
+.main-nav a:hover,
+.main-nav a:focus { background-color: rgba(var(--accent-rgb), 0.18); }
+.main-nav a.active,
+.main-nav a[aria-current="page"] { background-color: rgba(var(--accent-rgb), 0.28); }
 
-/* Hover efekti */
-.social a:hover img,
-.social a:focus img { filter: brightness(0.7); }
+/* Dropdown */
+.main-nav .has-submenu { position: relative; }
+.main-nav .submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,.08);
+  box-shadow: 0 6px 18px rgba(0,0,0,.12);
+  padding: 6px 0;
+  display: none;
+  z-index: 1000;
+}
+.main-nav .submenu li { margin: 0; }
+.main-nav .submenu a {
+  display: block;
+  padding: 10px 14px;
+  color: #111;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 0;
+}
+.main-nav .submenu a:hover,
+.main-nav .submenu a:focus { background: #f5f5f5; }
+.main-nav .has-submenu:hover .submenu,
+.main-nav .has-submenu:focus-within .submenu { display: block; }
+
+/* Sosyal alan sağda kalsın */
+.social { margin-left: .5rem; white-space: nowrap; }
+.social img { height: var(--social-size); width: var(--social-size); }
+
+/* Anchor'a kayarken başlık üstü boşluk */
+.procedure-list li { scroll-margin-top: 110px; }
 
 .main-nav {
   background-color: #000;
@@ -384,7 +429,6 @@ textarea:focus-visible {
   width: var(--social-size);
   display: block;
   transition: filter .15s ease;
-  filter: invert(1); /* siyah zeminde görünürlük */
 }
 .footer-social a:hover img,
 .footer-social a:focus img {
