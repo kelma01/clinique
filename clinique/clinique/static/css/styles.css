@@ -663,3 +663,20 @@ textarea:focus-visible {
   border-top: 1px solid rgba(255,255,255,.08); /* koyu footer için */
 }
 .legal-disclaimer p { margin: .25rem 0; }
+
+.kvkk-consent {
+  display: flex;
+  gap: .55rem;
+  align-items: flex-start;
+  font-size: .85rem;
+  line-height: 1.2;
+}
+.kvkk-consent a { color: var(--accent); text-decoration: underline; }
+.kvkk-consent a:hover,
+.kvkk-consent a:focus { color: var(--accent-600); }
+
+.submit:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+  filter: grayscale(.3);
+}

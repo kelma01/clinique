@@ -34,10 +34,29 @@
       <input type="text" name="name" placeholder="İsminizi giriniz">
       <input type="email" name="email" placeholder="E-posta adresiniz">
     </div>
+
+    <div class="checkboxes">
+      <label class="kvkk-consent">
+        <input type="checkbox" id="kvkkConsent">
+        KVKK Aydınlatma Metni'ni okudum ve kabul ediyorum
+      </label>
+    </div>
+
     <input type="hidden" name="next" value="{{ request.path }}">
     <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-10000px;opacity:0;height:0;width:0;">
-    <button type="submit" class="submit">GÖNDER</button>
+
+    <button type="submit" class="submit" id="contactSubmit" disabled>GÖNDER</button>
   </form>
 </section>
+
+<script>
+  (function() {
+    const cb = document.getElementById('kvkkConsent');
+    const btn = document.getElementById('contactSubmit');
+    cb.addEventListener('change', () => {
+      btn.disabled = !cb.checked;
+    });
+  })();
+</script>
 
 {% endblock %}

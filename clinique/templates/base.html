@@ -49,7 +49,9 @@
             <li><a href="{% url 'mezoterapi' %}#dermapen">Dermapen</a></li>
           </ul>
         </li>
-        <li><a href="{% url 'kvkk' %}" {% if request.resolver_match.url_name == 'kvkk' %}class="active" aria-current="page"{% endif %}>KVKK</a></li>
+        <li>
+          <a href="{% static 'kvkk/kvkk_pdf.pdf' %}" download="fatma_ari_kvkk.pdf">KVKK</a>
+        </li>
         <li><a href="{% url 'hakkimda' %}" {% if request.resolver_match.url_name == 'hakkimda' %}class="active" aria-current="page"{% endif %}>HAKKIMDA</a></li>
         <li><a href="{% url 'iletisim' %}" {% if request.resolver_match.url_name == 'iletisim' %}class="active" aria-current="page"{% endif %}>İLETİŞİM</a></li>
       </ul>
@@ -86,8 +88,9 @@
 
       <div class="footer-col footer-col--hours" aria-label="Çalışma Saatleri">
         <strong>Çalışma Saatleri</strong>
-        <div>Hafta içi: 09:00 - 18:00</div>
-        <div>Cumartesi: 09:00 - 13:00</div>
+        <div>Hafta içi: 08:00 - 19:00</div>
+        <div>Cumartesi: 08:00 - 19:00</div>
+        <div>Pazar: Kapalı</div>
       </div>
 
       <div class="footer-col footer-col--social" aria-label="Sosyal Medya">
@@ -109,7 +112,6 @@
       </div>
     </div>
 
-    <!-- Eklenen: yasal bilgilendirme -->
     <div class="legal-disclaimer">
       <p>Bu web sitesindeki içerikler tamamiyle bilgilendirme amaçlıdır. Gerçek doktor kontrolünün ve muayenesinin yerini tutamaz. Bu sitedeki bilgilerin hekim kontrolü olmaksızın uygulanması durumunda oluşabilecek her tür şikayet ve durumdan, Dr. Fatma Arı sorumlu tutulamaz. En doğru teşhis için lütfen doktorunuza başvurunuz.</p>
     </div>
