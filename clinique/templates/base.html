@@ -51,7 +51,7 @@
           </ul>
         </li>
         <li>
-          <a href="{% static 'kvkk/kvkk_pdf.pdf' %}" download="fatma_ari_kvkk.pdf">KVKK</a>
+          <a href="{% url 'kvkk' %}" {% if request.resolver_match.url_name == 'kvkk' %}class="active" aria-current="page"{% endif %}>KVKK</a>
         </li>
         <li><a href="{% url 'hakkimda' %}" {% if request.resolver_match.url_name == 'hakkimda' %}class="active" aria-current="page"{% endif %}>HAKKIMDA</a></li>
         <li><a href="{% url 'iletisim' %}" {% if request.resolver_match.url_name == 'iletisim' %}class="active" aria-current="page"{% endif %}>İLETİŞİM</a></li>
@@ -114,7 +114,8 @@
     </div>
 
     <div class="legal-disclaimer">
-      <p>Bu web sitesindeki içerikler tamamiyle bilgilendirme amaçlıdır. Gerçek doktor kontrolünün ve muayenesinin yerini tutamaz. Bu sitedeki bilgilerin hekim kontrolü olmaksızın uygulanması durumunda oluşabilecek her tür şikayet ve durumdan, Dr. Fatma Arı sorumlu tutulamaz. En doğru teşhis için lütfen doktorunuza başvurunuz.</p>
+      <p>© Tüm Hakları Dr. Fatma Arı'ya aittir. 2025</p>
+      <p>Bu sitede yer alan bilgilerin tamamı genel bilgilendirme amaçlı olup tıbbi işlemlere esas alınmamalıdır. Bu site reklam amacı taşımaz. Dr. Fatma Arı tarafından uygulanan veya gözlemlenen uygulamalar ile ilgili ön bilgilendirme amaçlıdır.</p>
     </div>
   </footer>
 

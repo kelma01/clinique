@@ -18,7 +18,7 @@
   --focus-ring: #C9A934;     /* erişilebilir odak */
 }
 
-html { font-size: 125%; }
+html { font-size: 150%; }
 
 * , *::before, *::after { box-sizing: border-box; }
 

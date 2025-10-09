@@ -28,4 +28,5 @@ urlpatterns = [
     path('iletisim/', TemplateView.as_view(template_name='pages/iletisim.html'), name='iletisim'),
     path('contact/submit/', send_message, name='send-message'),
     path('hakkimda/', hakkimda, name='hakkimda'),
+    path('kvkk/', TemplateView.as_view(template_name='pages/kvkk.html'), name='kvkk'),
 ]
