@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-v5cb8d#w827k3egnz!qg%fq4+9rg1m8%b6gk@bmyph3_%)3j4z
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']  # yerel kullanım
+ALLOWED_HOSTS = ['DrFatmaAri.onrender.com', 'drfatmaari.com', 'www.drfatmaari.com']  # yerel kullanım
 
 
 # Application definition
