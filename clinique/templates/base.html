@@ -15,6 +15,12 @@
         <img class="site-logo" src="{% static 'assets/fatma_logo_son.png' %}" alt="Dr. Fatma Arı logosu">
       </a>
     </div>
+    <!-- Mobile menu button (visible only on small screens via CSS) -->
+    <div class="mobile-menu-controls">
+      <button class="mobile-menu-button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menüyü aç">
+        <img src="{% static 'assets/nav_bar.png' %}" alt="Menü" class="mobile-menu-icon">
+      </button>
+    </div>
 
     <nav class="main-nav">
       <ul>
@@ -64,6 +70,29 @@
       </a>
     </div>
 </header>
+
+<!-- Mobile menu overlay/card (hidden by default) -->
+<div id="mobile-menu" class="mobile-menu-overlay" role="dialog" aria-hidden="true" aria-modal="true">
+  <div class="mobile-menu-card" role="document">
+    <div class="card-header">
+      <strong>Menü</strong>
+      <div>
+        <button class="mobile-menu-cancel" aria-label="Kapat">İptal</button>
+      </div>
+    </div>
+    <div class="card-body">
+      <ul>
+        <li><a href="{% url 'home' %}">ANA SAYFA</a></li>
+        <li><a href="{% url 'botoks' %}">BOTOKS</a></li>
+        <li><a href="{% url 'dolgu' %}">YÜZ VE DUDAK ESTETİĞİ</a></li>
+        <li><a href="{% url 'mezoterapi' %}">MEZOTERAPİ</a></li>
+        <li><a href="{% url 'kvkk' %}">KVKK</a></li>
+        <li><a href="{% url 'hakkimda' %}">HAKKIMDA</a></li>
+        <li><a href="{% url 'iletisim' %}">İLETİŞİM</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
 
   <main>
     {% block content %}{% endblock %}
@@ -122,5 +151,6 @@
   <a href="https://wa.me/905416077115" target="_blank" style="position: fixed; bottom: 20px; right: 20px; background-color: #25D366; color: white; padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 2px 8px rgba(0,0,0,0.2); z-index: 1000;">
     WhatsApp ile iletişime geçin
   </a>
+  <script src="{% static 'js/mobile-menu.js' %}"></script>
 </body>
 </html>

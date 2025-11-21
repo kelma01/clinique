@@ -65,11 +65,157 @@ body {
 /* Menü genişliğini taşırsa responsive dar ekran davranışı için */
 @media (max-width: 900px) {
   .top-header {
-    grid-template-columns: 1fr 1fr 1fr;
+    /* Daha kompakt bir mobil düzen: logo - nav - sosyal
+       ve header yüksekliğinin ekranı kaplamasını engelle. */
+    grid-template-columns: 1fr auto 1fr;
+    align-items: start;
+    padding: 0.6rem var(--container-pad);
+    gap: 0.25rem;
+    /* header'ın mobilde tüm ekranı kaplamasını engelle */
+    max-height: 40vh;
+    overflow: auto;
+  }
+  /* Logo küçültülsün */
+  .site-logo {
+    height: calc(clamp(2.8rem, 7vw, 4.2rem) * 1.0);
+    max-height: calc(clamp(2.8rem, 7vw, 4.2rem) * 1.0);
+  }
+  /* Navigasyon dikey yığılım yerine daha sıkışık dikey düzen */
+  .main-nav {
+    order: 2;
   }
   .main-nav ul {
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    flex-wrap: nowrap;
   }
+  .main-nav ul li a {
+    padding: .6rem .8rem;
+  }
+  .social { order: 3; }
+}
+/* --- Mobile modal menu styles --- */
+/* Default: hide mobile controls container and button on wide screens */
+.mobile-menu-controls {
+  display: none;
+}
+.mobile-menu-button {
+  display: none;
+}
+
+/* Use aspect-ratio: width/height. When width/height <= 1 (portrait or square),
+   switch to button + modal behavior. When width/height > 1 (landscape or wide),
+   show normal nav. */
+@media (max-aspect-ratio: 1/1) {
+  .top-header .main-nav {
+    display: none !important;
+  }
+  /* Center header items vertically in portrait so social icon aligns with logo */
+  .top-header {
+    align-items: center;
+  }
+  /* show the controls container and button in portrait/square */
+  .mobile-menu-controls {
+    display: inline-flex;
+    grid-column: 2;
+    justify-content: center;
+    align-items: center;
+  }
+  .mobile-menu-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.08);
+    color: #fff;
+    padding: .4rem .6rem;
+    border-radius: 8px;
+    font-family: 'Bebas Neue', sans-serif;
+    cursor: pointer;
+    transform: scale(.7);
+    transform-origin: center;
+  }
+
+/* Make the mobile menu icon the same visual size as the header Instagram icon */
+.mobile-menu-button .mobile-menu-icon,
+.mobile-menu-button img {
+  display: block;
+  height: calc(var(--social-size) * 1.75);
+  width: calc(var(--social-size) * 1.75);
+  object-fit: contain;
+}
+}
+
+@media (min-aspect-ratio: 1/1) {
+  /* Ensure nav visible on wide screens */
+  .top-header .main-nav {
+    display: flex !important;
+  }
+  .mobile-menu-button,
+  .mobile-menu-controls {
+    display: none !important;
+  }
+}
+
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1200;
+  padding: 1rem;
+}
+
+.mobile-menu-overlay.active {
+  display: flex;
+}
+
+.mobile-menu-card {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  color: #111;
+  border-radius: 12px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+  overflow: hidden;
+}
+
+.mobile-menu-card .card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .75rem 1rem;
+  background: #000;
+  color: #fff;
+}
+
+.mobile-menu-card .card-body {
+  padding: 1rem;
+}
+
+.mobile-menu-card ul { list-style: none; margin: 0; padding: 0; }
+.mobile-menu-card li + li { margin-top: .5rem; }
+.mobile-menu-card a {
+  display: block;
+  padding: .65rem .75rem;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 8px;
+}
+.mobile-menu-card a:hover,
+.mobile-menu-card a:focus {
+  background: rgba(0,0,0,0.04);
+}
+
+.mobile-menu-cancel {
+  background: transparent;
+  border: none;
+  color: #fff;
+  padding: .35rem .6rem;
+  cursor: pointer;
 }
 /* Daha küçük ekranlarda istersen nav'ı alt satıra alabilirsin (opsiyonel)
 @media (max-width: 600px) {
